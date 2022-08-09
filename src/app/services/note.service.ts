@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Firestore,setDoc,doc } from '@angular/fire/firestore';
+import { Firestore,setDoc,doc, collection, collectionSnapshots, deleteDoc } from '@angular/fire/firestore';
 import { Note } from 'src/models/note.model';
 
 @Injectable({
@@ -14,4 +14,14 @@ export class NoteService {
     }
     return setDoc(doc(this.db,'notes/'+note.id),note);
   }
+  getAllNotes() {
+    return collectionSnapshots(collection(this.db,'notes'));
+  }
+  update(note: Note) {
+    return setDoc(doc(this.db,'notes/'+note.id),note); 
+  }
+  delete(noteID: String) {
+    return deleteDoc(doc(this.db,'notes/'+noteID));
+  }
+
 }
