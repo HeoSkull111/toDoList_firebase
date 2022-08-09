@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "note-test-ccfc7": {
+      "hosting": {
+        "toDoList": [
+          "note-test-ccfc7"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "note-test-ccfc7"
+  }
+}
